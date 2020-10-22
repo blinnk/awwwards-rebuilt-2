@@ -11,7 +11,7 @@ import {
 } from '../context/globalContext';
 
 
-const Header = ({ onCursor }) => {
+const Header = ({ onCursor, setToggleMenu, toggleMenu }) => {
   const dispatch = useGlobalDispatchContext();
   const { currentTheme } = useGlobalStateContext();
 
@@ -31,7 +31,7 @@ const Header = ({ onCursor }) => {
     <HeaderNav
       animate={{ y: 0, opacity: 1 }}
       initial={{ y: -72, opacity: 0 }}
-      transition={{ duration: 1, ease: [0.6, 0.05, -0.01, 0.09] }}
+      transition={{ duration: 1, ease: [0.6, 0.05, -0.01, 0.9] }}
     >
       <Container>
         <Flex spaceBetween noHeight>
@@ -46,7 +46,7 @@ const Header = ({ onCursor }) => {
             ></span>
             <Link to='/'>W</Link>
           </Logo>
-          <Menu>
+          <Menu onClick={() => setToggleMenu(!toggleMenu)}>
             <button>
               <span></span>
               <span></span>

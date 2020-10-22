@@ -35,4 +35,4 @@ export const Headline = styled(motion.span)`
   font-size: 20rem;
   font-weight: 900;
   line-height: .80;
-`
+` 
