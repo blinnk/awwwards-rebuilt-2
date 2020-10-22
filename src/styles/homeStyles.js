@@ -16,6 +16,7 @@ export const Video = styled.div`
     object-fit: cover;
   }
 `;
+
 export const Canvas = styled.canvas`
   position: absolute;
   top: 0;
@@ -23,6 +24,7 @@ export const Canvas = styled.canvas`
   height: 100%;
   display: block;
 `;
+
 export const BannerTitle = styled(motion.h1)`
   position: absolute;
   bottom: -120px;
@@ -30,16 +32,18 @@ export const BannerTitle = styled(motion.h1)`
   color: ${props => props.theme.text};
   pointer-events: none;
 `;
+
 export const Headline = styled(motion.span)`
   display: block;
   font-size: 20rem;
   font-weight: 900;
   line-height: .80;
 `;
+
 export const HomeContentSection = styled(motion.div)`
   margin-bottom: 200px;
-
 `;
+
 export const Content = styled.h2`
   width: 53%;
   font-size: 2.3rem;
@@ -59,9 +63,9 @@ export const HomeFeaturedSection = styled(motion.div)`
 `;
 export const FeaturedContent = styled(motion.div)`
   height: 480px;
-  width: 80%;
+  width: 100%;
   padding: 56px 124px;
-  box-sizing: border-box
+  box-sizing: border-box;
   color: ${props => props.theme.text};
   h3 {
     font-size: 1.4rem;
@@ -145,5 +149,67 @@ export const FeaturedProjects = styled.div`
     &:after {
       margin-top: 8px;
     }
+  }
+`;
+
+//About
+export const HomeAboutSection = styled(motion.div)`
+ margin-bottom: 200px;
+`;
+export const About = styled.div`
+  width: 100%;
+  h2 {
+    width: 60%;
+    font-size: 2.3rem;
+    font-weight: 400;
+    margin-left: 124px;
+    color: ${props => props.theme.text};
+  }
+  p {
+    max-width: 440px;
+    font-size: 1rem;
+    margin-left: 124px;
+    line-height: 1.6rem;
+    color: ${props => props.theme.text};
+  }
+`;
+export const Services = styled.div`
+
+`;
+//Accordion
+export const AccordionHeader = styled(motion.div)`
+  width: 100%;
+  color: ${props => props.theme.red};
+  height: 32px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin: 8px 0;
+`;
+
+export const AccordionIcon = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 8px;
+  span {
+    width: 16px;
+    height: 4px;
+    background: ${props => props.theme.red};
+    transition: 0.1 ease-in-out;
+  }
+`;
+
+export const AccordionContent = styled(motion.div)`
+  overflow: hidden;
+  padding-left: 40px;
+  span {
+    width: 100%;
+    margin: 8px 0;
+    font-size: .875rem;
+    color: ${props => props.theme.red};
+    display: block;
+    font-weight: 300;
   }
 `;
