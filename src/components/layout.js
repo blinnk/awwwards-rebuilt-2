@@ -100,9 +100,15 @@ const Layout = ({ children }) => {
         toggleMenu={toggleMenu}
         setToggleMenu={setToggleMenu}
         onCursor={onCursor}
+        hamburgerPosition={hamburgerPosition}
+        setHamburgerPosition={setHamburgerPosition}
       />
       <main>{children}</main>
-      <Footer onCursor={onCursor} />
+      <Footer
+        onCursor={onCursor}
+        hamburgerPosition={hamburgerPosition}
+        setHamburgerPosition={setHamburgerPosition}
+      />
     </ThemeProvider>
   )
 }
