@@ -1,39 +1,44 @@
-import React, { useEffect, useRef } from 'react';
-import { Link } from 'gatsby';
+import React, { useEffect, useRef } from "react"
+import { Link } from "gatsby"
 
 //styled components
-import { HeaderNav, Logo, Menu } from '../styles/headerStyles';
-import { Container, Flex } from '../styles/globalStyles';
+import { HeaderNav, Logo, Menu } from "../styles/headerStyles"
+import { Container, Flex } from "../styles/globalStyles"
 
 import {
   useGlobalStateContext,
   useGlobalDispatchContext,
-} from '../context/globalContext';
+} from "../context/globalContext"
 
-import useElementPosition from '../hooks/useElementPosition';
+import useElementPosition from "../hooks/useElementPosition"
 
-const Header = ({ onCursor, setToggleMenu, toggleMenu, setHamburgerPosition, hamburgerPosition }) => {
-  const dispatch = useGlobalDispatchContext();
-  const { currentTheme } = useGlobalStateContext();
-  const hamburger = useRef(null);
-  const position = useElementPosition(hamburger);
+const Header = ({
+  onCursor,
+  setToggleMenu,
+  toggleMenu,
+  setHamburgerPosition,
+}) => {
+  const dispatch = useGlobalDispatchContext()
+  const { currentTheme } = useGlobalStateContext()
+  const hamburger = useRef(null)
+  const position = useElementPosition(hamburger)
 
   const toggleTheme = () => {
-    if (currentTheme === 'dark') {
-      dispatch({ type: 'TOGGLE_THEME', theme: 'light' });
+    if (currentTheme === "dark") {
+      dispatch({ type: "TOGGLE_THEME", theme: "light" })
     } else {
-      dispatch({ type: 'TOGGLE_THEME', theme: 'dark' });
+      dispatch({ type: "TOGGLE_THEME", theme: "dark" })
     }
-  };
+  }
 
   const menuHover = () => {
-    onCursor('locked');
-    setHamburgerPosition({ x: position.x, y: position.y + 72 });
-  };
+    onCursor("locked")
+    setHamburgerPosition({ x: position.x, y: position.y + 72 })
+  }
 
   useEffect(() => {
-    window.localStorage.setItem('theme', currentTheme);
-  }, [currentTheme]);
+    window.localStorage.setItem("theme", currentTheme)
+  }, [currentTheme])
 
   return (
     <HeaderNav
@@ -44,15 +49,16 @@ const Header = ({ onCursor, setToggleMenu, toggleMenu, setHamburgerPosition, ham
       <Container>
         <Flex spaceBetween noHeight>
           <Logo
-            onMouseEnter={() => onCursor('hovered')}
+            onMouseEnter={() => onCursor("hovered")}
             onMouseLeave={onCursor}
           >
-            <Link to='/'>FURR</Link>
-            <span onClick={toggleTheme}
-              onMouseEnter={() => onCursor('pointer')}
+            <Link to="/">FURR</Link>
+            <span
+              onClick={toggleTheme}
+              onMouseEnter={() => onCursor("pointer")}
               onMouseLeave={onCursor}
             ></span>
-            <Link to='/'>W</Link>
+            <Link to="/">W</Link>
           </Logo>
           <Menu
             ref={hamburger}
@@ -68,7 +74,7 @@ const Header = ({ onCursor, setToggleMenu, toggleMenu, setHamburgerPosition, ham
         </Flex>
       </Container>
     </HeaderNav>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
