@@ -41,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Layout = ({ children }) => {
-  const { currentTheme, cursorStyles } = useGlobalStateContext()
+  const { cursorStyles, currentTheme } = useGlobalStateContext()
   const dispatch = useGlobalDispatchContext()
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
