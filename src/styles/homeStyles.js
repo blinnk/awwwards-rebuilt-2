@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import styled from "styled-components"
+import { motion } from "framer-motion"
 
 //Banner
 export const Banner = styled.div`
@@ -8,22 +8,21 @@ export const Banner = styled.div`
   width: 100%;
   position: relative;
   margin-bottom: 296px;
-`;
+`
 export const Video = styled.div`
   height: 100%;
   width: 100%;
   video {
     object-fit: cover;
   }
-`;
-
+`
 export const Canvas = styled.canvas`
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   display: block;
-`;
+`
 
 export const BannerTitle = styled(motion.h1)`
   position: absolute;
@@ -31,27 +30,28 @@ export const BannerTitle = styled(motion.h1)`
   left: -18px;
   color: ${props => props.theme.text};
   pointer-events: none;
-`;
+`
 
 export const Headline = styled(motion.span)`
   display: block;
-  font-size: 20rem;
+  font-size: 23rem;
   font-weight: 900;
-  line-height: .80;
-`;
+  line-height: 0.76;
+`
 
+//Content Section
 export const HomeContentSection = styled(motion.div)`
   margin-bottom: 200px;
-`;
-
-export const Content = styled.h2`
+`
+export const Content = styled(motion.h2)`
   width: 53%;
   font-size: 2.3rem;
   font-weight: 400;
   margin-left: 124px;
   color: ${props => props.theme.text};
-`;
+`
 
+//Featured Section
 export const HomeFeaturedSection = styled(motion.div)`
   margin-bottom: 200px;
   position: relative;
@@ -60,7 +60,8 @@ export const HomeFeaturedSection = styled(motion.div)`
     position: relative;
     display: block;
   }
-`;
+`
+
 export const FeaturedContent = styled(motion.div)`
   height: 480px;
   width: 100%;
@@ -102,7 +103,7 @@ export const FeaturedContent = styled(motion.div)`
       }
     }
   }
-`;
+`
 
 export const FeaturedVideo = styled.div`
   position: absolute;
@@ -112,7 +113,7 @@ export const FeaturedVideo = styled.div`
   top: 0;
   display: block;
   overflow: hidden;
-`;
+`
 
 export const FeaturedProjects = styled.div`
   margin-top: 200px;
@@ -133,7 +134,7 @@ export const FeaturedProjects = styled.div`
     }
     &:before,
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       top: 50%;
       right: 20px;
@@ -150,12 +151,13 @@ export const FeaturedProjects = styled.div`
       margin-top: 8px;
     }
   }
-`;
+`
 
-//About
+//ABOUT SECTION
+
 export const HomeAboutSection = styled(motion.div)`
-`;
-
+  /* margin-bottom: 200px; */
+`
 export const About = styled.div`
   width: 100%;
   h2 {
@@ -168,26 +170,25 @@ export const About = styled.div`
   p {
     max-width: 440px;
     font-size: 1rem;
-    margin-left: 124px;
     line-height: 1.6rem;
+    margin-left: 124px;
     color: ${props => props.theme.text};
   }
-`;
-export const Services = styled.div`
+`
+export const Services = styled.div``
 
-`;
 //Accordion
+
 export const AccordionHeader = styled(motion.div)`
   width: 100%;
-  color: ${props => props.theme.red};
+  color: #ea281e;
   height: 32px;
   display: flex;
   align-items: center;
   font-weight: 600;
   font-size: 1.15rem;
   margin: 8px 0;
-`;
-
+`
 export const AccordionIcon = styled.div`
   display: flex;
   align-items: center;
@@ -196,10 +197,10 @@ export const AccordionIcon = styled.div`
   span {
     width: 16px;
     height: 4px;
-    background: ${props => props.theme.red};
-    transition: 0.1 ease-in-out;
+    background: #ea281e;
+    transition: all 0.1s ease-in-out;
   }
-`;
+`
 
 export const AccordionContent = styled(motion.div)`
   overflow: hidden;
@@ -207,9 +208,9 @@ export const AccordionContent = styled(motion.div)`
   span {
     width: 100%;
     margin: 8px 0;
-    font-size: .875rem;
-    color: ${props => props.theme.red};
+    font-size: 0.875rem;
+    color: #ea281e;
     display: block;
     font-weight: 300;
   }
-`;
+`

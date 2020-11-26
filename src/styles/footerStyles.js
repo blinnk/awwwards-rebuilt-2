@@ -5,11 +5,12 @@ export const FooterNav = styled(motion.div)`
   height: 300px;
   margin-top: 296px;
 `
+
 export const FooterContent = styled.div`
-  color: ${props => props.theme.red};
-  font-size: 1.8rem;
+  color: #ea281e;
+  font-size: 22px;
   font-weight: 600;
-  line-height: 0.5rem;
+  line-height: 8px;
   flex: 1;
   ${props =>
     props.wider &&
@@ -17,6 +18,7 @@ export const FooterContent = styled.div`
       flex: 2;
     `}
 `
+
 export const FooterSocial = styled.div`
   display: flex;
   position: relative;

@@ -1,48 +1,47 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react"
+import { Link } from "gatsby"
+import { motion } from "framer-motion"
 
 //Styled Components
-import { Container, Flex } from '../../styles/globalStyles';
+import { Container, Flex } from "../../styles/globalStyles"
 import {
   HomeFeaturedSection,
   FeaturedContent,
   FeaturedVideo,
   FeaturedProjects,
-} from '../../styles/homeStyles';
+} from "../../styles/homeStyles"
 
 //Scroll Behavior
-import { useInView } from 'react-intersection-observer';
-import { useAnimation } from 'framer-motion';
-
+import { useInView } from "react-intersection-observer"
+import { useAnimation } from "framer-motion"
 
 const HomeFeatured = ({ onCursor }) => {
-  const [hovered, setHovered] = useState(false);
-  const animation = useAnimation();
+  const [hovered, setHovered] = useState(false)
+  const animation = useAnimation()
   const [featuredRef, inView] = useInView({
     triggerOnce: true,
-    rootMargin: '-300px'
-  });
+    rootMargin: "-300px",
+  })
 
   useEffect(() => {
     if (inView) {
-      animation.start('visible');
+      animation.start("visible")
     }
-  }, [animation, inView]);
+  }, [animation, inView])
 
   return (
     <HomeFeaturedSection
       ref={featuredRef}
       animate={animation}
-      initial='hidden'
+      initial="hidden"
       variants={{
         visible: {
           opacity: 1,
           y: 0,
           transition: {
             duration: 0.6,
-            ease: [0.6, 0.05, -0.01, 0.9]
-          }
+            ease: [0.6, 0.05, -0.01, 0.9],
+          },
         },
         hidden: {
           opacity: 0,
@@ -55,19 +54,20 @@ const HomeFeatured = ({ onCursor }) => {
           <FeaturedContent
             onHoverStart={() => setHovered(!hovered)}
             onHoverEnd={() => setHovered(!hovered)}
-            onMouseEnter={() => onCursor('hovered')}
+            onMouseEnter={() => onCursor("hovered")}
             onMouseLeave={onCursor}
           >
             <Flex spaceBetween>
               <h3>Featured Project</h3>
               <motion.div
                 animate={{ opacity: hovered ? 1 : 0 }}
-                className="meta">
+                className="meta"
+              >
                 <h4>PEI Seafood</h4>
                 <h4>2009</h4>
               </motion.div>
             </Flex>
-            <h2 className='featured-title'>
+            <h2 className="featured-title">
               NOT <br /> HUMBLE
               <span className="arrow">
                 <motion.svg
@@ -90,7 +90,7 @@ const HomeFeatured = ({ onCursor }) => {
               loop
               autoPlay
               muted
-              src={require('../../assets/video/video.mp4')}
+              src={require("../../assets/video/video.mp4")}
             ></video>
           </FeaturedVideo>
         </Link>
@@ -104,8 +104,8 @@ const HomeFeatured = ({ onCursor }) => {
           </Flex>
         </FeaturedProjects>
       </Container>
-    </HomeFeaturedSection >
-  );
-};
+    </HomeFeaturedSection>
+  )
+}
 
-export default HomeFeatured;
+export default HomeFeatured
