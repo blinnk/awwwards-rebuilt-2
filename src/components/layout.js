@@ -1,20 +1,22 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+import { useStaticQuery, graphql } from "gatsby"
 
 //styled components
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { normalize } from 'styled-normalize';
+import { createGlobalStyle, ThemeProvider } from "styled-components"
+import { normalize } from "styled-normalize"
 
 //components
-import Header from './header';
-import Cursor from './customCursor';
-import Navigation from './navigation';
-import Footer from './footer';
+import Header from "./header"
+import Cursor from "./customCursor"
+import Navigation from "./navigation"
+import Footer from "./footer"
 
 //Context
-import { useGlobalStateContext, useGlobalDispatchContext } from '../context/globalContext';
-
+import {
+  useGlobalStateContext,
+  useGlobalDispatchContext,
+} from "../context/globalContext"
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -36,9 +38,11 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
 
-`;
+`
 
 const Layout = ({ children }) => {
+  const { currentTheme, cursorStyles } = useGlobalStateContext()
+  const dispatch = useGlobalDispatchContext()
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -47,7 +51,7 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `);
+  `)
 
   const [hamburgerPosition, setHamburgerPosition] = useState({
     x: 0,
@@ -55,42 +59,42 @@ const Layout = ({ children }) => {
   })
 
   const darkTheme = {
-    background: '#000',
-    text: '#fff',
-    red: '#ea291e',
+    background: "#000",
+    text: "#fff",
+    red: "#ea291e",
     left: `${hamburgerPosition.x}px`,
     top: `${hamburgerPosition.y}px`,
-  };
+  }
 
   const lightTheme = {
-    background: '#fff',
-    text: '#000',
-    red: '#ea291e',
+    background: "#fff",
+    text: "#000",
+    red: "#ea291e",
     left: `${hamburgerPosition.x}px`,
     top: `${hamburgerPosition.y}px`,
-  };
-
-  const { currentTheme, cursorStyles } = useGlobalStateContext();
-  const dispatch = useGlobalDispatchContext();
+  }
 
   const onCursor = cursorType => {
-    cursorType = (cursorStyles.includes(cursorType) && cursorType) || false;
+    cursorType = (cursorStyles.includes(cursorType) && cursorType) || false
     dispatch({
-      type: 'CURSOR_TYPE', cursorType: cursorType
-    });
-  };
+      type: "CURSOR_TYPE",
+      cursorType: cursorType,
+    })
+  }
 
-  const [toggleMenu, setToggleMenu] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState(false)
 
   return (
-    <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
+    <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
       <Cursor toggleMenu={toggleMenu} />
-      <Header onCursor={onCursor}
+      <Header
+        onCursor={onCursor}
         toggleMenu={toggleMenu}
         setToggleMenu={setToggleMenu}
         hamburgerPosition={hamburgerPosition}
         setHamburgerPosition={setHamburgerPosition}
+        setTitle={data.site.siteMetadata.title}
       />
       <Navigation
         toggleMenu={toggleMenu}
@@ -98,15 +102,13 @@ const Layout = ({ children }) => {
         onCursor={onCursor}
       />
       <main>{children}</main>
-      <Footer
-        onCursor={onCursor}
-      />
+      <Footer onCursor={onCursor} />
     </ThemeProvider>
-  );
-};
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-};
+}
 
-export default Layout;
+export default Layout

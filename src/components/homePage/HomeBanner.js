@@ -9,8 +9,8 @@ import { useGlobalStateContext } from '../../context/globalContext';
 import useWindowSize from '../../hooks/useWindowSize';
 
 const HomeBanner = ({ onCursor }) => {
-  let canvas = useRef(null);
   const size = useWindowSize();
+  let canvas = useRef(null);
   const { currentTheme } = useGlobalStateContext();
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const HomeBanner = ({ onCursor }) => {
     });
   }, [currentTheme]);
 
-  const parent = {
+  const container = {
     initial: { y: 800 },
     animate: {
       y: 0,
@@ -70,7 +70,7 @@ const HomeBanner = ({ onCursor }) => {
     },
   };
 
-  const child = {
+  const item = {
     initial: { y: 800 },
     animate: {
       y: 0,
@@ -94,15 +94,15 @@ const HomeBanner = ({ onCursor }) => {
         />
       </Video>
       <Canvas
-        ref={canvas}
         height={size.height}
         width={size.width}
+        ref={canvas}
         onMouseEnter={() => onCursor('hovered')}
         onMouseLeave={onCursor}
       />
-      <BannerTitle variants={parent} initial='initial' animate='animate'>
-        <Headline variants={child}>DIG</Headline>
-        <Headline variants={child}>DEEP</Headline>
+      <BannerTitle variants={container} initial='initial' animate='animate'>
+        <Headline variants={item}>DIG</Headline>
+        <Headline variants={item}>DEEP</Headline>
       </BannerTitle>
     </Banner>
   );

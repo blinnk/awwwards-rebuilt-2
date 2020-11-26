@@ -1,10 +1,10 @@
-import styled, { css } from 'styled-components';
-import { motion } from 'framer-motion';
+import styled, { css } from "styled-components"
+import { motion } from "framer-motion"
 
-export const FooterNav = styled.div`
+export const FooterNav = styled(motion.div)`
   height: 300px;
   margin-top: 296px;
-`;
+`
 export const FooterContent = styled.div`
   color: ${props => props.theme.red};
   font-size: 1.8rem;
@@ -14,21 +14,21 @@ export const FooterContent = styled.div`
   ${props =>
     props.wider &&
     css`
-    flex: 2;
-  ` }
-`;
+      flex: 2;
+    `}
+`
 export const FooterSocial = styled.div`
-display: flex;
-position: relative;
-a {
+  display: flex;
   position: relative;
-  display: block;
-  width: 24px;
-  height: 24px;
-  padding: 8px;
-  svg {
-    width: 100%;
-    height: 100%;
+  a {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 24px;
+    padding: 8px;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
-}
-`;
+`
