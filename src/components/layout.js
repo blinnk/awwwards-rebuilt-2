@@ -8,7 +8,7 @@ import { normalize } from "styled-normalize"
 
 //components
 import Header from "./header"
-import Cursor from "./customCursor"
+import CustomCursor from "./customCursor"
 import Navigation from "./navigation"
 import Footer from "./footer"
 
@@ -87,7 +87,7 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
-      <Cursor toggleMenu={toggleMenu} />
+      <CustomCursor toggleMenu={toggleMenu} />
       <Header
         onCursor={onCursor}
         toggleMenu={toggleMenu}
