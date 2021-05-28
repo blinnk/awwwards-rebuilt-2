@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import { motion } from "framer-motion"
-
 //Styled Components
 import { Container, Flex } from "../../styles/globalStyles"
 import {
