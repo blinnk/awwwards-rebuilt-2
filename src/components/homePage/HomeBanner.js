@@ -65,7 +65,7 @@ const HomeBanner = ({ onCursor }) => {
         renderingCtx.drawImage(drawingElement, 0, 0)
       }
     })
-  }, [currentTheme])
+  }, [currentTheme, size.height, size.width])
 
   const container = {
     initial: { y: 800 },

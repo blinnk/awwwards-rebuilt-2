@@ -12,6 +12,8 @@ import {
 
 import useElementPosition from "../hooks/useElementPosition"
 
+const isBrowser = typeof window !== "undefined"
+
 const Header = ({
   onCursor,
   setToggleMenu,
@@ -37,7 +39,7 @@ const Header = ({
   }
 
   useEffect(() => {
-    window.localStorage.setItem("theme", currentTheme)
+    isBrowser && window.localStorage.setItem("theme", currentTheme)
   }, [currentTheme])
 
   return (
