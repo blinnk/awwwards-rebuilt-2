@@ -12,7 +12,7 @@ export default function useWindowSize() {
 
   useEffect(() => {
     function handleResize() {
-      isBrowser && setWindowSize(getSize())
+      setWindowSize(getSize())
     }
 
     isBrowser && window.addEventListener("resize", handleResize)
