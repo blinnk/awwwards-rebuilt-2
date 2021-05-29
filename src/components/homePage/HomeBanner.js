@@ -1,8 +1,6 @@
-import React, { useEffect, useRef } from "react"
-//Custom Hook
-import useWindowSize from "../../hooks/useWindowSize"
-//Context
+import React, { useEffect, useRef,  useState } from "react"
 import { useGlobalStateContext } from "../../context/globalContext"
+//Context
 //Styled Components
 import {
   Banner,
@@ -11,6 +9,35 @@ import {
   Canvas,
   Headline,
 } from "../../styles/homeStyles"
+
+
+const isBrowser = typeof window !== "undefined"
+
+//Custom Hook
+function useWindowSize() {
+  function getSize() {
+    return {
+      width: isBrowser && window.innerWidth,
+      height: isBrowser && window.innerHeight,
+    }
+  }
+  const [windowSize, setWindowSize] = useState(getSize)
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize(getSize())
+    }
+
+    window.addEventListener("resize", handleResize)
+
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  return windowSize
+}
+
+
+
 
 const HomeBanner = ({ onCursor }) => {
   const size = useWindowSize()
