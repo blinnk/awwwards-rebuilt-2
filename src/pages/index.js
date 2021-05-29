@@ -9,7 +9,7 @@ import {
 
 //Components
 import HomeBanner from "../components/homePage/HomeBanner"
-import HomeContent from "../components/homePage/HomeContent"
+import HomeContent from "../components/homePage/homeContent"
 import HomeFeatured from "../components/homePage/HomeFeatured"
 import HomeAbout from "../components/homePage/HomeAbout"
 
